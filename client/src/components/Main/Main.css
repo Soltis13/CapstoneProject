@@ -1,0 +1,19 @@
+
+body{
+  background: lightgray;
+}
+
+form {
+  text-align: center;
+}
+
+h3 {
+    color: #666;
+}
+
+.Header {
+  font-size: 1.5rem;
+  text-align: center;
+  border-bottom: solid lightgray 1px;
+  border-top: solid lightgray 1px;
+}

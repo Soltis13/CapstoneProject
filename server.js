@@ -7,11 +7,12 @@ const path = require('path');
 
 //Require Routes
 const users = require('./routes/api/users');
+const profile = require('./routes/api/profile');
 
 //Setup express app
 const app = express();
 
-// Body parser middleware
+// Body-Parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -23,6 +24,12 @@ mongoose
   .connect(db)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
+
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport Config
+require('./config/passport')(passport);
 
 // Use Routes
 app.use('/api/users', users);
