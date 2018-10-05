@@ -8,6 +8,10 @@ const path = require('path');
 //Require Routes
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
+// TODO: create routing
+// /update or /edit post
+// /search get for search for keyword
+// 
 
 //Setup express app
 const app = express();
