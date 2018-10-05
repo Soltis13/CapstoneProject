@@ -38,6 +38,24 @@ require('./config/passport')(passport);
 // Use Routes
 app.use('/api/users', users);
 
+// Routing
+const userController = require("./controller/Controller");
+const router = new express.Router();
+// Define any API routes first
+// Get saved user
+router.get("/api/saved", userController.find);
+// Save user
+router.post("/api/saved", userController.insert);
+// delete saved user
+router.delete("/api/saved/:id", userController.delete);
+// Send every other request to the React app
+router.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.send("app")
+});
+
+app.use(router);
+
 // Server static assets if in production
 if (process.env.NODE_ENV === 'production') {
     // Set static folder
