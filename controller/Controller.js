@@ -1,4 +1,4 @@
-const User = require("../model/User");
+const User = require("../models/User");
 
 module.exports = {
   // this method handles finding all Users in the db
@@ -6,6 +6,7 @@ module.exports = {
     console.log("Gathering saved Users from the db");
     User.find().then(function(doc) {
       res.json(doc);
+      console.log("doc: ", doc);
     }).catch(function(err) {
       res.json(err);
     });
