@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 
 class Landing extends Component {
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
   render() {
     return (
       <div className="landing">
         <div className="dark-overlay landing-inner text-light">
           <div className="container">
             <div className="row">
-              <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Startup Landing Page</h1>
+              <div className="col-md-12 text-center maintitle">
+                <h1 className="display-3 mb-4">Tech That Cares</h1>
                 <p className="lead">
                   {' '}
-                  Test Landing page to allow user to create a user and login.
+                  Connecting Developers to Non-Profits and Non-Profits to Developers; Creating a Community to Solve Tech Issues.
                 </p>
                 <hr />
-                <Link to="/register" className="btn btn-lg btn-info mr-2">
-                  Sign Up
-                </Link>
-                <Link to="/login" className="btn btn-lg btn-light">
-                  Login
-                </Link>
+                <label className="searchskills"> 
+                  Search for Skill:
+                </label>
+                <input className="searchskillsentry" type="text" name="name" />
+                <button type="button" className="btn-size btn btn-success">Submit</button>
               </div>
             </div>
           </div>
@@ -30,4 +37,12 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+Landing.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Landing);
