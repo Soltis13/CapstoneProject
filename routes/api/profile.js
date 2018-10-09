@@ -76,3 +76,19 @@ router.get('/user/:user_id', (req, res) => {
     );
 });
 
+// @route   POST api/profile
+// @desc    Create or edit user profile (name/contact/location/skills/pict)
+// @access  Private
+
+// @route   POST api/profile/experience
+// @desc    Add experience to profile
+// @access  Private
+
+// @route   DELETE api/profile
+// @desc    Delete user and profile
+// @access  Private
+
+// @route   DELETE api/profile/experience/:exp_id
+// @desc    Delete experience from profile
+// @access  Private
+
