@@ -7,7 +7,66 @@ const ProfileSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'users'
     },
+    //added the profile information
   
+    // profile-userpic
+    // profile-usertitle
+    // Name
+    // Contact
+    // location
+    // experience
+    // skills
+
+    picture: {
+      type: URL
+    },
+    handle: {
+      type: String,
+      required: true,
+      max: 40
+    },
+    name: {
+      type: String
+    },
+    contact: {
+      type: String
+    },
+    location: {
+      type: String
+    },
+    experience: [
+      {
+        title: {
+          type: String,
+          required: true
+        },
+        company: {
+          type: String,
+          required: true
+        },
+        location: {
+          type: String
+        },
+        from: {
+          type: Date,
+          required: true
+        },
+        to: {
+          type: Date
+        },
+        current: {
+          type: Boolean,
+          default: false
+        },
+        description: {
+          type: String
+        }
+      }
+    ],
+    skills: {
+      type: [String],
+      required: true
+    },
     date: {
       type: Date,
       default: Date.now
