@@ -18,7 +18,7 @@ const ProfileSchema = new Schema({
     // skills
 
     picture: {
-      type: URL
+      type: String
     },
     handle: {
       type: String,
